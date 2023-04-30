@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/OAnQuan/Cell.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/OAnQuan/Stones.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/baloo/Baloo-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/OAnQuan/Rock1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/OAnQuan/Rock2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/OAnQuan/cell_pressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://Assets/OAnQuan/cell_normal.tres" type="StyleBox" id=7]
+[ext_resource path="res://Assets/OAnQuan/cell_hover.tres" type="StyleBox" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="Cell" type="Button"]
+margin_left = 370.0
+margin_top = 367.0
+margin_right = 470.0
+margin_bottom = 467.0
+rect_min_size = Vector2( 100, 100 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 7 )
+toggle_mode = true
+enabled_focus_mode = 0
+script = ExtResource( 1 )
+
+[node name="Stones" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="Stones"]
+position = Vector2( 34, 46 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Stones"]
+position = Vector2( 35, 45 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Count" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -30.0
+margin_top = -30.0
+rect_min_size = Vector2( 30, 30 )
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1

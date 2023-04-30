@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/baloo/Baloo-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Mode" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -102.0
+margin_right = 100.0
+margin_bottom = 102.0
+
+[node name="PVE" type="Button" parent="Mode"]
+margin_right = 200.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+custom_fonts/font = SubResource( 1 )
+text = "Máy"
+
+[node name="PVP" type="Button" parent="Mode"]
+margin_top = 104.0
+margin_right = 200.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 200, 100 )
+custom_fonts/font = SubResource( 2 )
+text = "Người"
+
+[node name="Difficulty" type="VBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -102.0
+margin_right = 100.0
+margin_bottom = 102.0
+
+[node name="Easy" type="Button" parent="Difficulty"]
+margin_right = 200.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+custom_fonts/font = SubResource( 1 )
+text = "Dễ"
+
+[node name="Normal" type="Button" parent="Difficulty"]
+margin_top = 104.0
+margin_right = 200.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 200, 100 )
+custom_fonts/font = SubResource( 2 )
+text = "Thường"
+
+[node name="Hard" type="Button" parent="Difficulty"]
+margin_top = 208.0
+margin_right = 200.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 200, 100 )
+custom_fonts/font = SubResource( 2 )
+text = "Khó"
+
+[connection signal="pressed" from="Mode/PVE" to="." method="_on_PVE_pressed"]
+[connection signal="pressed" from="Mode/PVP" to="." method="_on_PVP_pressed"]
+[connection signal="pressed" from="Difficulty/Easy" to="." method="_on_Easy_pressed"]
+[connection signal="pressed" from="Difficulty/Normal" to="." method="_on_Normal_pressed"]
+[connection signal="pressed" from="Difficulty/Hard" to="." method="_on_Hard_pressed"]
